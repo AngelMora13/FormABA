@@ -90,7 +90,7 @@ export class UsuarioService {
     return this.usuario;
   }
   isRobot(accion: string) {
-    const url = 'http://formulador.herokuapp.com/api/recaptcha/';
+    const url = 'https://formulador.herokuapp.com/api/recaptcha/';
     return new Promise((resolve, rejects) => {
       grecaptcha
         .execute('6LeVozkaAAAAADhsVUHU7rzg4WBYgbzXjpIYZ99M', {

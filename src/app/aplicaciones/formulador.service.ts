@@ -12,11 +12,11 @@ export class FormuladorService {
   constructor(private http: HttpClient) {
   }
   getMateriasPrimas() {
-    const url: string = 'http://formulador.herokuapp.com/api/materiaprima';
+    const url: string = 'https://formulador.herokuapp.com/api/materiaprima';
     return this.http.get(url)
   }
   formularIngredientes(minimo: MateriaPrima, maximo: MateriaPrima) {
-    const url: string = 'http://formulador.herokuapp.com/api/formular/';
+    const url: string = 'https://formulador.herokuapp.com/api/formular/';
     const perfil: MateriaPrima[] = [minimo, maximo];
     this.seleccionMP.forEach((e) => (e.Masa = 0));
     return new Promise((resolve, rejects) => {

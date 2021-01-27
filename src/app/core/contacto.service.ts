@@ -9,7 +9,7 @@ export class ContactoService {
   constructor(private http:HttpClient) { }
 
   enviarMensaje(token:any){
-    const url="http://formulador.herokuapp.com/api/contacto/"
+    const url="https://formulador.herokuapp.com/api/contacto/"
     return new Promise((resolve,rejects)=>{
       this.http.post(url,token).toPromise().then(
         datos=>resolve(datos),
