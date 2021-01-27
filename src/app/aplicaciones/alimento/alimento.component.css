@@ -1,0 +1,185 @@
+.flexCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+.flexRow{
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    margin: 10px;
+}
+.contenedor{    
+    margin: 0;
+    background: rgba(255, 255, 255, 0.7);
+}
+.titulo-1,.titulo-2{
+    text-align: center;
+}
+.filtro{
+    background: rgba(49, 65, 138, 0.9);
+    justify-content: space-between;
+    color: white;
+    padding: 0 10px;
+}
+.filtro_nombre, .filtro_prop{
+    height: 15px;
+    align-self: center;
+    margin: 5px;
+    flex-grow: 1;
+}
+select{
+    align-self: center;
+    margin: 5px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+.mp_lista{
+    justify-content: flex-start;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    height: 250px;
+    background:rgba(49, 65, 138, 0.9);
+    border-radius: 10px;
+    position: relative;
+}
+.mp_boton{
+    scroll-snap-align: none;
+    position: relative;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1rem;
+}
+.mp_boton:hover{
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+}
+.mp_boton::after{
+    content: "";
+    background: white;
+    position: absolute;
+    height: 2px;
+    width: 90%;
+    right: 15px;
+    top: 100%;
+}
+.mp_seleccionada{
+    width: 40vw;
+    max-height: 350px;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    padding-top: 30px;
+    background: rgba(255, 255, 255, 0.7);
+}
+.mp_s{
+    justify-content: space-between;
+    scroll-snap-align: none;
+}
+.tooltip{
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+    cursor: pointer;
+}
+.tooltip_item{
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 200px;
+    margin-left: -80px;
+    text-align: center;
+    background: rgba(68,187,164, 0.9);
+    color: white;
+    border-radius: 5px;
+    padding: 8px 4px;
+    font-size: 0.9rem;
+}
+.tooltip:hover .tooltip_item{
+    visibility: visible;
+}
+.tooltip_item::after{
+    content: "";
+    position: absolute;
+    top:100%;
+    left: 30%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(68,187,164, 0.9) transparent transparent transparent;
+}
+
+.navegacion{
+    justify-content: space-around;
+    align-items: center;
+    margin:10px 0 10px 0;
+}
+.mp_eliminar{
+    background: rgb(241, 36, 36);
+    color: white;
+    height: 25px;
+    width: 80px;
+}
+.btnRestore{
+    background:rgba(68,187,164, 0.9);
+    color: white;
+}
+.btnNext{
+    color: white;
+    background: rgba(41, 131, 41, 0.9);
+}
+.Notacion{
+    text-align: center;
+    padding: 8px 0;
+    background: rgba(49, 65, 138, 0.9);
+    color: white;
+}
+input{
+    margin-top: 10px;
+    outline: none;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+}
+input:focus{
+    border: 2px solid orange;
+}
+.spinerLoader{
+    width: 35px;
+    height: 35px;
+    border:solid 4px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-left-color: rgba(68,187,164, 0.9);
+    animation: spin 1.5s ease infinite;    
+}
+@keyframes spin{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+@media only screen and (max-width:760px){
+    .materiasPrimas{
+        flex-direction: column;
+    }
+    .mp_seleccionada{
+        width: 90%;
+        align-self: center;
+    }
+    .mp_eliminar{
+        display: block;
+    }
+    .mp{
+        width: 80%;
+        align-self: center;
+    }
+
+}

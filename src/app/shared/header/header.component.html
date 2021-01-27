@@ -1,0 +1,70 @@
+<section class="primerContenedor">
+  <header class="segundoConetendor">
+    <input type="checkbox" class="check" [(ngModel)]="isCheck" hidden />
+    <nav class="navegacion">
+      <div class="menuDesplegable">
+        <a class="inicio" routerLink="inicio/">Inicio</a>
+      </div>
+      <button type="button" class="icon" (click)="openHeader()"><i class="fas fa-bars"></i></button
+      >
+      <div class="responsiveBar">
+        <a class="responsive" routerLink="desarrollo/">Sobre el Desarrollo</a>
+        <div class="tutoriales responsive">
+          <a
+            class="tutoriales responsive"
+            (click)="openTutoriales()"
+            >Tutoriales</a
+          >
+          <input
+            type="checkbox"
+            class="tutorialCheck"
+            [(ngModel)]="isTutorialCheck"
+            hidden
+          />
+          <div class="tutoriales__lista">
+            <a routerLink="tutoriales/formularalimento/" (click)="checkToFalse()"
+              >Formular Alimento</a
+            >
+            <a
+              routerLink="tutoriales/formularingredientes/"
+              (click)="checkToFalse()"
+              >Formular Ingredientes</a
+            >
+          </div>
+        </div>
+        <a class="responsive" routerLink="info/contacto">Contacto</a>
+        <div class="usuario responsive">
+          <a
+            class="usuario responsive"
+            (click)="openUsuarioSettings()"
+            >Usuario</a
+          >
+          <input
+            type="checkbox"
+            class="usuarioCheck"
+            [(ngModel)]="isUsuarioCheck"
+            hidden
+          />
+          <div class="usuario__lista" #usuarioLista>
+            <a
+              *ngIf="!isAuth"
+              href="#"
+              (click)="openRegistrarLogin()"
+              routerLink="login/"
+              >Login</a
+            >
+            <a
+              *ngIf="!isAuth"
+              (click)="openRegistrarLogin()"
+              routerLink="registro/"
+              >Registrarse</a
+            >
+            <a *ngIf="isAuth" (click)="doLogout()" routerLink="inicio/"
+              >Logout</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+</section>

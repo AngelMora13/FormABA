@@ -1,0 +1,49 @@
+<input type="checkbox" class="check" [(ngModel)]="isCheck" hidden/>
+<a class="toggle" style="cursor: pointer;" (click)="!isCheck ? isCheck=true : isCheck=false"><i class="fas fa-bars"></i></a>
+<section class="app app1">
+  <section class="app__usuario">
+    <header class="app__usuario-nombre">
+      <h1>Bienvenido:</h1>
+      <h2>{{ user }}</h2>
+    </header>
+    <header class="app__usuario-imagen">
+      <img
+        src="../../../assets/FormABA.jpg"
+        alt="{{ user }}"
+        title="{{ user }}"
+      />
+    </header>
+  </section>
+  <div class="espaciador"></div>
+  <br />
+  <div class="espaciador"></div>
+  <section class="app app2">
+    <header>
+      <h1>Selecciona una Aplicacion</h1>
+    </header>
+    <nav class="app__tools">
+      <ul class="app__tools-lista">
+        <li>
+          <a href="#"
+            ><img
+              src="../../../assets/FA.png"
+              alt="Formulador de Alimentos"
+              title="Formulador de Alimentos"
+          /></a>
+        </li>
+        <div class="app__tools-lista-fa">
+          <li class="app__tools-lista-fa-select">
+            <a (click)="closeSide()" routerLink="/alimento"
+              >Formular Alimento</a
+            >
+          </li>
+          <li class="app__tools-lista-fa-select">
+            <a (click)="closeSide()" routerLink="/ingredientes"
+              >Formular Ingredientes</a
+            >
+          </li>
+        </div>
+      </ul>
+    </nav>
+  </section>
+</section>

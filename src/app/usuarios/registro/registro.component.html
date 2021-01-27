@@ -1,0 +1,220 @@
+<article class="primerContenedor">
+  <div class="side">    
+    <div class="imagenTop">
+      <img src="../../../assets/FormABA.jpg" alt="FormABA" title="FormABA" />
+    </div>
+    <!--Usuarios, Personas-->
+    <form
+      class="registro"
+      #formRegistro="ngForm"
+      (ngSubmit)="onRegistrarPersona(formRegistro)"
+      *ngIf="tipoPersona"
+    >    
+    <div class="tipoUsuario">
+      <label for="persona"><a class="seleccionUsuario seleccionado">Persona</a></label>
+      <label for="empresa" class="flexGrow"><a class="seleccionUsuario noSeleccionado">Empresa</a></label>
+      <input type="radio" name="tipoUsuario" id="persona" [(ngModel)]="tipoPersona" [value]="true" hidden> 
+      <input type="radio" name="tipoUsuario" id="empresa" [(ngModel)]="tipoPersona" [value]="false" hidden >
+  </div>
+      <header><h1>Registro de Usuario</h1></header>
+      <div class="registro__usuario">
+        <label for="nombre"
+        title="Tres (3) o mas caracteres">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          class="formInput"
+          placeholder="Nombre"
+          pattern="[^\'&#34;]+"
+          title="Tres (3) o mas caracteres"
+          #nombre="ngModel"
+          minlength="3"
+          [(ngModel)]="nuevoUsuario.nombre"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="apellido"
+        title="Tres (3) o mas caracteres">Apellido</label>
+        <input
+          type="text"
+          id="apellido"
+          name="apellido"
+          class="formInput"
+          placeholder="Apellido"
+          pattern="[^\'&#34;]+"
+          title="Tres (3) o mas caracteres"
+          #apellido="ngModel"
+          minlength="3"
+          [(ngModel)]="nuevoUsuario.apellido"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="correo">Correo</label>
+        <input
+          type="email"
+          id="correo"
+          name="correo"
+          class="formInput"
+          placeholder="Correo"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="example@mail.com"
+          #email="ngModel"
+          [email]="true"
+          [(ngModel)]="nuevoUsuario.correo"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="password"
+        title="Ocho (8) o mas combinacion de caracteres, comillas no permitidas">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="formInput"
+          placeholder="Contraseña"
+          pattern="[^\'&#34;]+"
+          title="Ocho (8) o mas combinacion de caracteres, comillas no permitidas"
+          #contraseña="ngModel"
+          minlength="8"
+          [(ngModel)]="password"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="confirPassword">Confirmar Contraseña</label>
+        <input
+          type="password"
+          id="confirPassword"
+          name="confirPassword"
+          class="formInput"
+          placeholder="Confirmar Contraseña"
+          minlength="8"
+          pattern="[^\'&#34;]+"
+          title="Ocho (8) o mas combinacion de caracteres, comillas no permitidas"
+          [(ngModel)]="confirPassword"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="select">Lugar de Trabajo</label>
+          <select id="cargo" name="cargo" class="formInput" [(ngModel)]="nuevoUsuario.cargo" required>
+            <option value=0 selected>Lugar de Trabajo</option>
+            <option value=1>Industria de Alimentos</option>
+            <option value=2>Industria ABA</option>            
+            <option value=3>Estudiante</option>
+            <option value=4>Otro</option>
+          </select>
+      </div>
+      <div class="submitRegistro">
+        <input type="submit" class="submitBtn" value="Registrarse" />
+        <a routerLink="/inicio"><input type="button" class="resetBtn" value="Regresar"/></a>
+      </div>
+    </form>
+    <!--usuarios, Empresas-->    
+    <form
+      class="registro"
+      #formRegistro="ngForm"
+      (ngSubmit)="onRegistrarEmpresa(formRegistro)"
+      *ngIf="!tipoPersona"
+    >
+      
+    <div class="tipoUsuario">
+      <label for="empresa"><a class="seleccionado">Empresa</a></label>
+      <label class="flexGrow" for="persona"><a class="noSeleccionado">Persona</a></label>      
+      <input type="radio" name="tipoUsuario" id="persona" [(ngModel)]="tipoPersona" [value]="true" hidden> 
+      <input type="radio" name="tipoUsuario" id="empresa" [(ngModel)]="tipoPersona" [value]="false" hidden>
+    </div>
+      <header><h1>Registro de Empresas</h1></header>
+      <div class="registro__usuario">
+        <label for="nombre"
+        title="Tres (3) o mas caracteres">Nombre</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          class="formInput"
+          placeholder="Nombre"
+          pattern="[^\'&#34;]+"
+          title="Tres (3) o mas caracteres"
+          #nombre="ngModel"
+          minlength="3"
+          [(ngModel)]="nuevaEmpresa.nombre"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="acronimo"
+        title="Tres (3) o mas caracteres">Acronimo</label>
+        <input
+          type="text"
+          id="acronimo"
+          name="acronimo"
+          class="formInput"
+          placeholder="Acronimo"
+          pattern="[^\'&#34;]+"
+          title="Tres (3) o mas caracteres"
+          #apellido="ngModel"
+          minlength="3"
+          [(ngModel)]="nuevaEmpresa.acronimo"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="correo">Correo</label>
+        <input
+          type="email"
+          id="correo"
+          name="correo"
+          class="formInput"
+          placeholder="Correo"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="example@mail.com"
+          #email="ngModel"
+          [email]="true"
+          [(ngModel)]="nuevaEmpresa.correo"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="password"
+        title="Ocho (8) o mas combinacion de caracteres">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="formInput"
+          placeholder="Contraseña"
+          pattern="[^\'&#34;]+"
+          title="Ocho (8) o mas combinacion de caracteres"
+          #contraseña="ngModel"
+          minlength="8"
+          [(ngModel)]="password"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="confirPassword">Confirmar Contraseña</label>
+        <input
+          type="password"
+          id="confirPassword"
+          name="confirPassword"
+          class="formInput"
+          placeholder="Confirmar Contraseña"
+          pattern="[^\'&#34;]+"
+          minlength="8"
+          title="Ocho (8) o mas combinacion de caracteres"
+          [(ngModel)]="confirPassword"
+          required
+        />
+      </div>
+      <div class="submitRegistro">
+        <input type="submit" class="submitBtn" value="Registrarse" />
+        <a routerLink="/inicio"><input type="button" class="resetBtn" value="Regresar"/></a>
+      </div>
+    </form>
+  </div>
+</article>

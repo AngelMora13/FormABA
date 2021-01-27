@@ -1,0 +1,68 @@
+<section class="flexCol contenedor-1">
+  <header class="titulo-1"><h1>Formular Alimento</h1></header>
+  <div class="flexRow contenedor-2">
+    <article class="flexCol materiasPrimas">
+      <header class="titulo-2"><h2>Ingrese Valores</h2></header>
+        <div class="flexRow mp">
+          <div class="mp_contenedor flexCol">
+          <div *ngFor="let mp of seleccionMP" class="flexRow mp_lista">
+            <label for="{{ mp.Nombre }}" class="tooltip">{{ mp.Nombre }}
+            <span class="tooltip_item">
+              H: {{ mp.Humedad }}, PB: {{ mp.Proteina }}, EE:
+              {{ mp.Grasa }}, FB: {{ mp.Fibra }}, Cz:
+              {{ mp.Cenizas }}
+            </span>
+          </label>
+          <input type="number" 
+                class="mp_cantidad"
+                id="{{ mp.Nombre }}"
+                placeholder="{{ mp.Nombre }}"
+                [(ngModel)]="mp.Masa"
+          />
+          </div>
+        </div>
+        </div>
+        <nav class="flexRow navegacion">
+          <button type="button" routerLink="/alimento" class="eliminar">Retroceder</button>
+          <button type="button" class="btnNext" (click)="onListo()">Predecir</button>
+          <button type="button" class="btnRestore" (click)="onRestore()">Restablecer</button>
+        </nav>
+    </article>
+    <div class="espaciador"></div>
+    <article class="flexCol resultados">
+      <header class="titulo-2"><h1>Resultados del Alimento</h1></header>
+      <aside class="r_tabla">
+        <table class="tablaResultado">
+          <tr>
+            <th>Propiedad Fisicoquimica</th>
+            <th>Valor</th>
+          </tr>
+          <tr>
+            <td>Masa (u)</td>
+            <td>{{ masa.toFixed(4) }}</td>
+          </tr>
+          <tr>
+            <td>Humedad (%)</td>
+            <td>{{ humedad.toFixed(4) }}</td>
+          </tr>
+          <tr>
+            <td>Proteina Bruta (%)</td>
+            <td>{{ proteina.toFixed(4) }}</td>
+          </tr>
+          <tr>
+            <td>Extracto Et&eacute;reo (%)</td>
+            <td>{{ grasa.toFixed(4) }}</td>
+          </tr>
+          <tr>
+            <td>Fibra Bruta (%)</td>
+            <td>{{ fibra.toFixed(4) }}</td>
+          </tr>
+          <tr>
+            <td>Cenizas (%)</td>
+            <td>{{ cenizas.toFixed(4) }}</td>
+          </tr>
+        </table>
+      </aside>
+    </article>
+  </div>
+</section>

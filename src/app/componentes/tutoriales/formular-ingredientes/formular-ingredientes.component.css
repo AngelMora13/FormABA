@@ -1,0 +1,78 @@
+.primerContenedor{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.segundoContenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 40px 40px 40px;
+
+}
+.tercerContenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.paginas{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.imagen1,.imagen2{
+    align-self: center;
+    width: 350px;
+    height: 300px;
+}
+.imagen3, .imagen4, .imagen5, .imagen6{
+    align-self: center;
+    width:50vw;
+    height: 350px;
+    transition: transform 0.25s ease-out;
+}
+.imagen3:hover, .imagen4:hover, .imagen5:hover, .imagen6:hover{
+    transform: scaleY(1.4) scaleX(1.2);
+    transition: transform 0.2s ease-in;
+
+}
+div{
+    display: flex;
+    flex-direction: column;
+}
+p,li{
+    text-align: justify;
+    font-size: 1.3rem;
+    margin-top: 5px;
+}
+@media only screen and (max-width:760px){
+    .imagen1,.imagen2{
+        align-self: center;
+        width: 70vw;
+        height: 300px;
+    }
+    .imagen3,.imagen4,.imagen5,.imagen6{
+        align-self: center;
+        width:70vw ;
+        height: 250px;
+    }
+    p,li{
+        font-size: 3vw;
+    }
+}
+@media only screen and (max-width:480px){
+    .imagen1,.imagen2{
+        align-self: center;
+        width: 30vw;
+        height: 30vw;
+    }
+    .imagen3,.imagen4,.imagen5,.imagen6{
+        align-self: center;
+        width:70vw ;
+        height: auto;
+    }
+}

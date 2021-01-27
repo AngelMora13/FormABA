@@ -1,0 +1,165 @@
+.primerContenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    padding: 40px 8vw;
+}
+h1{
+    font-size: 3vw;
+    color: white;
+}
+header{
+    align-self: center;
+}
+.seleccionUsuario{
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    
+}
+.seleccionado{
+    background: none;
+    
+}
+.usuarioTitulo{
+    background: rgba(49, 65, 138, 0.9);
+}
+.flexGrow{
+    flex-grow: 1;
+    background: rgba(49, 65, 138, 0.9);
+    box-shadow: 0px 5px 5px black;
+    cursor: pointer;
+    border-radius: 0 10px 0 0;
+}
+.tipoUsuario{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+}
+.side{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(255, 166, 0, 0.459), 0 -5px 10px rgba(0, 26, 255, 0.5), -5px 0 10px green;
+}
+.imagenTop img{
+    width: 25vw;
+    height: auto;
+    margin: 0 5px;
+    box-shadow: 0 5px 10px rgba(49, 65, 138, 0.9);
+}
+.imagenTop{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.registro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(rgba(49, 65, 138, 0.5), rgba(49, 65, 138, 1));
+    padding:0 0px 8px 0px;
+    border-radius: 0 10px 10px 0;
+}
+.registro__usuario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 3vh;
+}
+label, .formInput{
+    font-size: 1.5vw;
+    padding: 5px;
+}
+label{
+    color:white;
+}
+.formInput{
+    border-radius: 50px;
+    outline: none;
+    border: 2px solid white;
+    text-align: center;
+}
+.formInput:focus{
+    box-shadow: 0px 0px 5px 3px rgba(255, 166, 0, 0.7), 0px 0px 5px 3px rgba(255, 166, 0, 0.7);
+}
+.submitRegistro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:5px 0px;
+    padding: 0 8px 0 0;
+}
+.submitBtn,.resetBtn{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+}
+.submitBtn{
+    background: rgba(68,187,164, 1);
+    color:white;
+    flex-grow: 1;
+    margin: 0 10px;
+    transition: all ease-out 0.35s;
+}
+.submitBtn:hover{
+    background: rgba(49, 190, 49, 0.8);
+    transition: all ease-in 0.15s;
+}
+.resetBtn{
+    background: rgba(236, 82, 82, 0.9);  
+    color: black;
+}
+.resetBtn:hover{
+    background: rgba(224, 75, 75, 0.8);
+}
+@media only screen and (max-width:1024px){
+    label,.formInput{
+        font-size: 2vw;
+    }
+}
+@media only screen and (max-width:760px){
+    .imagenTop{
+        display: none;
+    }
+    .side{
+        background: none;
+    }
+    label,.formInput{
+        font-size: 3vw;
+    }
+    h1{
+        font-size: 3.5vw;
+    }
+    .registro{
+        border-radius: 10px;
+    }
+}
+@media only screen and (max-width:480px){
+    .primerContenedor{
+        padding: 10px 0;
+    }
+    label,.formInput{
+        font-size: 3vw;
+    }
+    .registro__usuario{        
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 5px;
+    }
+    .submitBtn,.resetBtn{
+        width: 20vw;
+        height: 25px;
+        font-size: 3vw;
+    }
+}
