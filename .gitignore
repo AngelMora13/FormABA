@@ -5,7 +5,7 @@
 /dist
 /tmp
 /out-tsc
-./src/environments/
+/src/environments/
 .firebaserc
 firebase.json
 # Only exists if Bazel was run
