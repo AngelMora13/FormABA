@@ -4,6 +4,18 @@ header img {
     border-radius: 50%;
     margin-top: 5px;
   }
+  .overlay{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
   .toggle{
     display: none;
   }
@@ -117,7 +129,7 @@ header img {
   @media only screen and (max-width:760px){
     .app{
       display: none;
-      z-index: 1;
+      z-index: 3;
     }
     .app .app{
       padding: 0;
@@ -133,10 +145,21 @@ header img {
       font-size: 2rem;
       background: none;
       color: white;
-      z-index: 2;
+      z-index: 4;
   }  
   .check:checked ~ .toggle{  
       position: fixed;
+      right: 25px;
+      left: auto;
+  }
+  .check:checked ~ .toggle{  
+    color:rgb(104, 238, 211);
+    background: rgba(49, 65, 138, 0.9);
+    box-shadow: 0 0 5px 2px rgba(68,187,164, 0.8);
+
+  }  
+  .check:checked ~ .overlay{
+    display: block;
   }
     a{
       color: white;
@@ -150,13 +173,13 @@ header img {
     .check:checked ~ .app1{
       width: 40vw;
       overflow-y: visible;
-      overflow: scroll;
+      overflow-y: scroll;
       overflow-x: hidden;
-      scroll-snap-type: y;
+      scroll-snap-type: y mandatory;
       position: fixed;
     }
-    .check:checked ~ .app .app{
-      scroll-snap-align: center;
+    .app1 .app2, .app1 .app__usuario{
+      scroll-snap-align: none;
     }
     h1{
       font-size: 2.8vw;

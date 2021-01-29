@@ -20,6 +20,9 @@
     align-items: center;
     margin-top: 20px;
 }
+.titulo{
+    text-align: center;
+}
 .paginas{
     margin-left: 10px;
     margin-right: 10px;
@@ -46,7 +49,7 @@ div{
 }
 p,li{
     text-align: justify;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-top: 5px;
 }
 @media only screen and (max-width:760px){
@@ -60,9 +63,6 @@ p,li{
         width:70vw ;
         height: 250px;
     }
-    p,li{
-        font-size: 3vw;
-    }
 }
 @media only screen and (max-width:480px){
     .imagen1,.imagen2{
@@ -74,5 +74,8 @@ p,li{
         align-self: center;
         width:70vw ;
         height: auto;
+    }
+    button{
+        width: 70px;
     }
 }

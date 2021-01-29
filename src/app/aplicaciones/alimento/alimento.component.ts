@@ -49,10 +49,9 @@ export class AlimentoComponent implements OnInit {
       inputNumber.hidden = false;
     }
   }
-  buscarFiltroPropiedad(valor: string, inputValue: HTMLInputElement) {
+  buscarFiltroPropiedad(valor: string, inputValue: number = 0) {
     const numero = parseInt(valor);
-    const filtro: number = parseFloat(inputValue.value);
-    console.log(inputValue.value);
+    const filtro: number = inputValue;
     this.materiasPrimas = this.formularService.materiasPrimas;
     switch (numero) {
       case 2:

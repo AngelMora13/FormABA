@@ -1,9 +1,12 @@
-.primerContenedor{
+.contenedor-1{
     background: linear-gradient(white,rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.7));
     display: flex;
     flex-direction: column;
     justify-content: space-between;    
     width: 100%;
+}
+.contenedor-2{
+    margin: 10px;
 }
 .titulo{
     justify-self: center;
@@ -97,9 +100,6 @@ p{
     margin: 10px;
     font-size: 1.2rem;
 }
-i{
-    filter: contrast(15);
-}
 .spinContainer{
     position: absolute;
 
@@ -142,7 +142,7 @@ p:hover .instaTip{
     bottom: 0;
     border-bottom: 3px solid black;
 }
-.locacion:hover{
+.locacionLink:hover .locacion{
     animation: gps 1s infinite;
     color:orangered;
     border-bottom: 3px solid green;
@@ -195,7 +195,12 @@ p:hover .instaTip{
         align-self: center;
         margin: 0 0 20px 0;
     }    
-    .primerContenedor{
+    .contenedor-1{
         background: rgba(255, 255, 255, 0.7);
+    }
+}
+@media only screen and (max-width:760px){
+    .contenedor-1{
+        padding-bottom: 40px;
     }
 }

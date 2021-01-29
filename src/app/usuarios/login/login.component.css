@@ -7,7 +7,7 @@
     padding: 40px 8vw;
 }
 h1{
-    font-size: 3vw;
+    font-size: 2rem;
     color: white;
 }
 header{
@@ -47,7 +47,6 @@ header{
     margin: 3vh;
 }
 label, .formInput{
-    font-size: 1.5vw;
     padding: 5px;
 }
 label{
@@ -94,16 +93,6 @@ a{
     text-decoration: none;
     color: black;
 }
-@media only screen and (min-width:1025px){
-    .formInput{
-        font-size: 1rem;
-    }
-}
-@media only screen and (max-width:1024px){
-    label,.formInput{
-        font-size: 2vw;
-    }
-}
 @media only screen and (max-width:760px){
     .imagenTop{
         display: none;
@@ -111,32 +100,12 @@ a{
     .side{
         background: none;
     }
-    label,.formInput{
-        font-size: 3vw;
-    }
-    h1{
-        font-size: 3.5vw;
-    }
     .login{
         border-radius: 10px;
     }
 }
 @media only screen and (max-width:480px){
     .primerContenedor{
-        padding: 10px 0;
-    }
-    label,.formInput{
-        font-size: 3vw;
-    }
-    .registro__usuario{        
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 5px;
-    }
-    .submitBtn,.resetBtn{
-        width: 20vw;
-        height: 25px;
-        font-size: 3vw;
+        margin: 20px;
     }
 }

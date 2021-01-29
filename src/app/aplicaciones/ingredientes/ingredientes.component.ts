@@ -55,7 +55,7 @@ export class IngredientesComponent implements OnInit {
       this.contadorMPSeleccion++;
     }
     onFiltro(
-      valor: string,
+      valor: string="",
       inputText: HTMLInputElement,
       inputNumber: HTMLInputElement
     ) {
@@ -70,10 +70,9 @@ export class IngredientesComponent implements OnInit {
         inputNumber.hidden = false;
       }
     }
-    buscarFiltroPropiedad(valor: string, inputValue: HTMLInputElement) {
+    buscarFiltroPropiedad(valor: string, inputValue: number = 0) {
       const numero = parseInt(valor);
-      const filtro: number = parseFloat(inputValue.value);
-      console.log(inputValue.value);
+      const filtro: number = inputValue;
       this.materiasPrimas = this.formularService.materiasPrimas;
       switch (numero) {
         case 2:
@@ -150,8 +149,7 @@ export class IngredientesComponent implements OnInit {
           this.router.navigate(["/ingredientes/resultado"])
         }
       ).catch(
-        e=>{
-          console.log(e)
+        ()=>{
             this.displayError("Ocurrio un error inesperado")                  
         }
       )
@@ -164,10 +162,12 @@ export class IngredientesComponent implements OnInit {
     }
     checkError(){
       if(
-        this.perfilNutritivo.Masa>this.perfilNutritivoMaximo.Masa ||
-        this.perfilNutritivo.Humedad>this.perfilNutritivoMaximo.Humedad ||
-        this.perfilNutritivo.Proteina>this.perfilNutritivoMaximo.Proteina ||
-        this.perfilNutritivo.Grasa>this.perfilNutritivoMaximo.Grasa
+        this.perfilNutritivo.Masa > this.perfilNutritivoMaximo.Masa ||
+        this.perfilNutritivo.Humedad > this.perfilNutritivoMaximo.Humedad ||
+        this.perfilNutritivo.Proteina > this.perfilNutritivoMaximo.Proteina ||
+        this.perfilNutritivo.Grasa > this.perfilNutritivoMaximo.Grasa ||
+        this.perfilNutritivo.Fibra > this.perfilNutritivoMaximo.Fibra ||
+        this.perfilNutritivo.Cenizas > this.perfilNutritivoMaximo.Cenizas
       ){
         this.displayError("Valores maximos no pueden ser menor al esperado")
         return false
@@ -176,7 +176,9 @@ export class IngredientesComponent implements OnInit {
         this.perfilNutritivo.Masa<=0 ||
         this.perfilNutritivo.Humedad<=0 ||
         this.perfilNutritivo.Proteina<=0 ||
-        this.perfilNutritivo.Grasa<=0
+        this.perfilNutritivo.Grasa<=0 ||
+        this.perfilNutritivo.Fibra<=0 ||
+        this.perfilNutritivo.Cenizas<=0
       ){
         this.displayError("Valores esperados no pueden ser negativos o cero (0)")
         return false

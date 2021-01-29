@@ -14,7 +14,7 @@ h1{
     font-size: 2rem;
 }
 h2{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 .cuerpo{
     display: flex;
@@ -61,7 +61,7 @@ a{
 }
 @media only screen and (max-width:760px){
     h1{
-        font-size: 4.5vw;
+        font-size: 5vw;
     }
     h2{
         font-size: 3.7vw;

@@ -1,3 +1,4 @@
+<div #overlay class="overlay"><div class="spinerLoader"></div></div>
 <article class="primerContenedor">
   <div class="side">    
     <div class="imagenTop">
@@ -7,7 +8,7 @@
     <form
       class="registro"
       #formRegistro="ngForm"
-      (ngSubmit)="onRegistrarPersona(formRegistro)"
+      (ngSubmit)="onRegistrarPersona(formRegistro,overlay)"
       *ngIf="tipoPersona"
     >    
     <div class="tipoUsuario">
@@ -25,15 +26,17 @@
           id="nombre"
           name="nombre"
           class="formInput"
-          placeholder="Nombre"
+          placeholder="Nombre (*)"
           pattern="[^\'&#34;]+"
           title="Tres (3) o mas caracteres"
           #nombre="ngModel"
           minlength="3"
           [(ngModel)]="nuevoUsuario.nombre"
+          [ngClass]="{'is-invalid': nombre.errors && nombre.touched}"
           required
         />
       </div>
+      <div [hidden]="!nombre.errors?.minlength" class="isInvalid">Debe contener al menos 3 caracteres</div>
       <div class="registro__usuario">
         <label for="apellido"
         title="Tres (3) o mas caracteres">Apellido</label>
@@ -42,15 +45,17 @@
           id="apellido"
           name="apellido"
           class="formInput"
-          placeholder="Apellido"
+          placeholder="Apellido (*)"
           pattern="[^\'&#34;]+"
           title="Tres (3) o mas caracteres"
           #apellido="ngModel"
           minlength="3"
           [(ngModel)]="nuevoUsuario.apellido"
+          [ngClass]="{'is-invalid': apellido.errors && apellido.touched}"
           required
         />
       </div>
+      <div [hidden]="!apellido.errors?.minlength" class="isInvalid">Debe contener al menos 3 caracteres</div>
       <div class="registro__usuario">
         <label for="correo">Correo</label>
         <input
@@ -58,15 +63,17 @@
           id="correo"
           name="correo"
           class="formInput"
-          placeholder="Correo"
+          placeholder="Correo (*)"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           title="example@mail.com"
           #email="ngModel"
           [email]="true"
           [(ngModel)]="nuevoUsuario.correo"
+          [ngClass]="{'is-invalid': email.errors && email.touched}"
           required
-        />
+        />      
       </div>
+      <div [hidden]="!email.errors?.pattern" class="isInvalid">Email invalido</div>
       <div class="registro__usuario">
         <label for="password"
         title="Ocho (8) o mas combinacion de caracteres, comillas no permitidas">Contraseña</label>
@@ -75,15 +82,17 @@
           id="password"
           name="password"
           class="formInput"
-          placeholder="Contraseña"
+          placeholder="Contraseña (*)"
           pattern="[^\'&#34;]+"
           title="Ocho (8) o mas combinacion de caracteres, comillas no permitidas"
-          #contraseña="ngModel"
+          #passLock="ngModel"
           minlength="8"
-          [(ngModel)]="password"
+          [(ngModel)]="newPassword"
+          [ngClass]="{'is-invalid': passLock.errors && passLock.touched}"
           required
         />
       </div>
+      <div [hidden]="!passLock.errors?.minlength" class="isInvalid">Debe contener al menos 8 caracteres</div>
       <div class="registro__usuario">
         <label for="confirPassword">Confirmar Contraseña</label>
         <input
@@ -91,8 +100,7 @@
           id="confirPassword"
           name="confirPassword"
           class="formInput"
-          placeholder="Confirmar Contraseña"
-          minlength="8"
+          placeholder="Confirmar Contraseña (*)"
           pattern="[^\'&#34;]+"
           title="Ocho (8) o mas combinacion de caracteres, comillas no permitidas"
           [(ngModel)]="confirPassword"
@@ -137,15 +145,17 @@
           id="nombre"
           name="nombre"
           class="formInput"
-          placeholder="Nombre"
+          placeholder="Nombre (*)"
           pattern="[^\'&#34;]+"
           title="Tres (3) o mas caracteres"
           #nombre="ngModel"
           minlength="3"
           [(ngModel)]="nuevaEmpresa.nombre"
+          [ngClass]="{'is-invalid': nombre.errors && nombre.touched}"
           required
         />
       </div>
+      <div [hidden]="!nombre.errors?.minlength" class="isInvalid">Debe contener al menos 3 caracteres</div>
       <div class="registro__usuario">
         <label for="acronimo"
         title="Tres (3) o mas caracteres">Acronimo</label>
@@ -154,15 +164,17 @@
           id="acronimo"
           name="acronimo"
           class="formInput"
-          placeholder="Acronimo"
+          placeholder="Acronimo (*)"
           pattern="[^\'&#34;]+"
           title="Tres (3) o mas caracteres"
-          #apellido="ngModel"
+          #acronimo="ngModel"
           minlength="3"
           [(ngModel)]="nuevaEmpresa.acronimo"
+          [ngClass]="{'is-invalid': acronimo.errors && acronimo.touched}"
           required
         />
       </div>
+      <div [hidden]="!acronimo.errors?.minlength" class="isInvalid">Debe contener al menos 3 caracteres</div>
       <div class="registro__usuario">
         <label for="correo">Correo</label>
         <input
@@ -170,15 +182,17 @@
           id="correo"
           name="correo"
           class="formInput"
-          placeholder="Correo"
+          placeholder="Correo (*)"
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           title="example@mail.com"
           #email="ngModel"
           [email]="true"
           [(ngModel)]="nuevaEmpresa.correo"
+          [ngClass]="{'is-invalid': email.errors && email.touched}"
           required
         />
       </div>
+      <div [hidden]="!email.errors?.pattern" class="isInvalid">Email invalido</div>
       <div class="registro__usuario">
         <label for="password"
         title="Ocho (8) o mas combinacion de caracteres">Contraseña</label>
@@ -187,15 +201,17 @@
           id="password"
           name="password"
           class="formInput"
-          placeholder="Contraseña"
+          placeholder="Contraseña (*)"
           pattern="[^\'&#34;]+"
           title="Ocho (8) o mas combinacion de caracteres"
-          #contraseña="ngModel"
+          #passLock="ngModel"
           minlength="8"
-          [(ngModel)]="password"
+          [(ngModel)]="newPassword"
+          [ngClass]="{'is-invalid': passLock.errors && passLock.touched}"
           required
         />
       </div>
+      <div [hidden]="!passLock.errors?.minlength" class="isInvalid">Debe contener al menos 8 caracteres</div>
       <div class="registro__usuario">
         <label for="confirPassword">Confirmar Contraseña</label>
         <input
@@ -203,9 +219,8 @@
           id="confirPassword"
           name="confirPassword"
           class="formInput"
-          placeholder="Confirmar Contraseña"
+          placeholder="Confirmar Contraseña (*)"
           pattern="[^\'&#34;]+"
-          minlength="8"
           title="Ocho (8) o mas combinacion de caracteres"
           [(ngModel)]="confirPassword"
           required

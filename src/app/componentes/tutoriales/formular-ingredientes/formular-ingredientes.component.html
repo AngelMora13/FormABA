@@ -1,13 +1,13 @@
 <section class="primerContenedor">
     <article class="segundoContenedor">
-      <header><h1>Pasos para Formular los Ingredientes en la aplicacion</h1></header>
+      <header class="titulo"><h1>Pasos para Formular los Ingredientes en la aplicacion</h1></header>
       <nav>
         <button (click)="onAnterior()">Anterior</button><span class="paginas">{{ pagina }} de 6</span>
         <button (click)="onSiguiente()">Siguiente</button>
       </nav>
       <section ngSwitch="{{ pagina }}" class="tercerContenedor">
         <img
-            src="{{imgURL}}"
+            src="{{ imgURL }}"
             class="imagen{{ pagina }}"
             alt="Paso {{pagina}}"
             title="Paso {{pagina}}"

@@ -25,7 +25,7 @@ export class RegistroComponent implements OnInit {
     correo: '',
   };
   tipoPersona: boolean = true;
-  password: string;
+  newPassword: string;
   confirPassword: string;
   constructor(private router: Router, private loginService: UsuarioService) {}
   onRegistrarPersona({
@@ -34,21 +34,23 @@ export class RegistroComponent implements OnInit {
   }: {
     value: RegistroUsuario;
     valid: boolean;
-  }) {
+  },overlay:HTMLDivElement) {
     if (!valid) {
       alert('Los datos no son validos');
       return;
     } else if (this.nuevoUsuario.cargo === 0) {
       alert('Debe Seleccionar un Lugar de Trabajo');
       return;
-    } else if (this.password != this.confirPassword) {
+    } else if (this.newPassword != this.confirPassword) {
       alert('Las contraseñas no coinciden');
       return;
     } else {
+      overlay.style.display="block"
       this.loginService.isRobot("registro").then(
         resp=>{
           if (resp['mensaje']) {
           alert(resp['mensaje']);
+          overlay.style.display="none"
           return;          
         }
         this.loginService.registrarse(value.correo, value.password)
@@ -56,7 +58,11 @@ export class RegistroComponent implements OnInit {
         .then((res) =>this.loginService.saveUserInformation(res.uid,value,true))
       })
       .then(()=>this.router.navigate(["/inicio"]))
-      .catch(()=>alert("error inesperado"))
+      .catch(()=>{
+        alert("error inesperado")
+        overlay.style.display="none"
+      })
+      overlay.style.display="none"
     }
   }
 
@@ -70,7 +76,7 @@ export class RegistroComponent implements OnInit {
     if (!valid) {
       alert('Los datos no son validos');
       return;
-    } else if (this.password != this.confirPassword) {
+    } else if (this.newPassword != this.confirPassword) {
       alert('Las contraseñas no coinciden');
       return;
     } else {

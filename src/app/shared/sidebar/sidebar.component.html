@@ -1,5 +1,7 @@
 <input type="checkbox" class="check" [(ngModel)]="isCheck" hidden/>
-<a class="toggle" style="cursor: pointer;" (click)="!isCheck ? isCheck=true : isCheck=false"><i class="fas fa-bars"></i></a>
+<div class="overlay" (click)="closeSide()"></div>
+<button type="button" class="toggle" (click)="!isCheck ? isCheck=true : isCheck=false"><i class="fas fa-bars"></i></button
+  >
 <section class="app app1">
   <section class="app__usuario">
     <header class="app__usuario-nombre">
@@ -24,8 +26,8 @@
     <nav class="app__tools">
       <ul class="app__tools-lista">
         <li>
-          <a href="#"
-            ><img
+          <a>
+            <img
               src="../../../assets/FA.png"
               alt="Formulador de Alimentos"
               title="Formulador de Alimentos"

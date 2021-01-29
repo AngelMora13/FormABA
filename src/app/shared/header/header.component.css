@@ -121,7 +121,7 @@ a:hover{
     .primerContenedor{
         height: auto;
         border-radius: 0;
-        width: 96vw;
+        width: 100vw;
     }
     .icon{
         display: block;
@@ -166,10 +166,17 @@ a:hover{
         justify-content: center;
         align-items: center;
         text-align: center;
+        margin-top: 10px;
         background:rgba(63, 65, 73, 0.7);
     }
     .responsive{
         width:auto;
+    }
+    .check:checked ~ .navegacion .icon{
+        color:rgb(104, 238, 211);
+        background: rgba(49, 65, 138, 0.9);
+        box-shadow: 0 0 5px 2px rgba(68,187,164, 0.8);
+
     }
     .check:checked ~.navegacion > .responsiveBar > .responsive{
         display: block;
