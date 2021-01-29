@@ -14,4 +14,8 @@ ingredientes y su proporcion dentro de la mezcla de micro y macro componentes.
 
 Permite predecir la proporcion de los ingredientes que se usaran para la elaboracion del alimento.
 
+<<<<<<< HEAD
 Se requieren conocer los ingredientes a usar y el perfil esperado del alimento balanceado.
+=======
+Se requieren conocer los ingredientes a usar y el perfil esperado del alimento balanceado.
+>>>>>>> 353a8cc8bd42761d6dfeea05a4153a25caa00434
