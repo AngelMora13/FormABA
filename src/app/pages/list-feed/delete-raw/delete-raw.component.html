@@ -1,0 +1,45 @@
+<div #overlay class="overlay"><div class="spinerLoader"></div></div>
+<div class="Container">
+    <header>
+        <h1>List of feedstocks</h1>
+    </header>
+    <div *ngIf="!stopLoader" class="spinerLoader"></div>
+    <div *ngIf="stopLoader" class="listContainer">
+        <div #notaError class="error_hidden"></div>
+        <table #table class="tablaResultado">
+            <tr>
+                <th class="toolTipName tooltip">
+                    Name
+                    <span class="tooltip_item">
+                        click on names to see more features
+                    </span>
+                </th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor="let props of feedstocks">
+                <td class="tooltip">
+                    {{props.Nombre}}
+                        <span class="tooltip_item">
+                        H: {{ props.Humedad }}, PB: {{ props.Proteina }}, EE:
+                        {{ props.Grasa }}, FB: {{ props.Fibra }}, Cz:
+                        {{ props.Cenizas }}
+                        </span>
+                </td>
+                <td><button class="btnDelete" (click)="deleteSeleccion(props)">Delete</button></td>
+            </tr>            
+        </table>
+        <nav class="navigation">
+            <button type="button" routerLink="/" class="btnBack">Go Back</button>
+            <button type="submit" class="btnSave" (click)="onSaveStocks()">Save Changes</button>
+            <button type="button" class="btnRestore" (click)="onRestore()">Restore Changes</button>
+        </nav>
+        <p class="Notacion">
+            Notation:
+            <br/> H: % Moisture.
+            <br/> Pb: % Crude protein. 
+            <br/> EE: % Ether extract (Crude fat). 
+            <br/> Fb: % Crude fiber. 
+            <br/> Cz: % Ash.
+        </p>
+    </div>
+</div>

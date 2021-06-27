@@ -1,0 +1,49 @@
+<article class="primerContenedor">
+  <form class="login" #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+    <header><h1>Login</h1></header>
+    <div class="loginContainer">
+      <div class="registro__usuario">
+        <label for="correo">Email</label>
+        <input
+          type="email"
+          id="correo"
+          name="correo"
+          class="formInput"
+          placeholder="Email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="example@mail.com"
+          #email="ngModel"
+          [email]="true"
+          [(ngModel)]="correo"
+          required
+        />
+      </div>
+      <div class="registro__usuario">
+        <label for="password" title="Ocho (8) o mas combinacion de caracteres"
+          >Password</label
+        >
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="formInput"
+          placeholder="Password"
+          title="Ocho (8) o mas combinacion de caracteres"
+          #contraseña="ngModel"
+          minlength="8"
+          pattern="[^\'&#34;]+"
+          [(ngModel)]="password"
+          required
+        />
+      </div>
+    </div>
+    <p class="register">
+      ¿Don't have an account?
+      <a class="registerLink" [routerLink]="['/user/register']">register</a>
+    </p>
+    <div class="submitRegistro">
+      <button type="submit" class="submitBtn">Login</button>
+      <button type="button" class="btnBack" [routerLink]="['/']">Go Back</button>
+    </div>
+  </form>
+</article>

@@ -1,0 +1,93 @@
+.primerContenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+}
+h1{
+    font-size: 2rem;
+    color: white;
+}
+header{
+    align-self: center;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(49, 65, 138, 0.5);
+    box-shadow: 2px 2px 32px rgba(68,187,164, 0.8);
+    border-radius: 10px;
+    padding-bottom: 20px;
+    margin: 20px 0 20px 0;
+}
+.loginContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.registro__usuario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 3vh;
+}
+label, .formInput{
+    padding: 5px;
+}
+label{
+    color:white;
+}
+.formInput{
+    border-radius: 50px;
+    outline: none;
+    border: 2px solid white;
+    text-align: center;
+}
+.formInput:focus{
+    box-shadow: 0px 0px 5px 3px rgba(255, 166, 0, 0.7), 0px 0px 5px 3px rgba(255, 166, 0, 0.7);
+}
+.register{
+    align-self: center;
+    color:white;
+}
+.register a{
+    color: rgba(117, 24, 117, 0.767);
+    font-size: 1.2rem;
+}
+.submitRegistro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:5px 0;
+}
+.submitBtn{
+    background: rgba(68,187,164, 1);
+    color:white;
+    flex-grow: 1;
+    margin: 0 10px;
+    border-radius: 20px;
+    transition: all ease-out 0.35s;
+}
+.submitBtn:hover{
+    background: rgba(49, 190, 49, 0.8);
+    transition: all ease-in 0.15s;
+}
+.btnBack{
+    background:rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    color: black;
+    border-radius: 20px;
+    margin: 0 10px;
+}
+.btnBack:hover{
+    transition: ease-in all 0.15s;
+    background: rgba(255, 255, 255, 0.8);
+}
+@media only screen and (max-width:480px){
+    .loginContainer{
+        flex-direction: column;
+    }
+}

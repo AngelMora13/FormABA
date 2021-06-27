@@ -1,9 +1,1 @@
-<div *ngIf="isRouting; else elseTemplate">   
-    <app-sidebar class="side"></app-sidebar>
-    <app-header></app-header>
-    <router-outlet class="linkis" (activate)="checkRoute()"></router-outlet>
-    </div>
-    
-    <ng-template #elseTemplate>
-        <router-outlet (deactivate)="onDesactivate()"></router-outlet>
-    </ng-template>
+<router-outlet></router-outlet>

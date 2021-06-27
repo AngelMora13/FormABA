@@ -1,0 +1,90 @@
+<div #overlay class="overlay"><div class="spinerLoader"></div></div>
+<div class="Container">
+  <header>
+    <h1>List of feedstocks</h1>
+  </header>
+  <div *ngIf="!stopLoader" class="spinerLoader"></div>
+  <div *ngIf="stopLoader" class="listContainer">
+    <div #notaError class="error_hidden"></div>
+    <table class="tablaResultado">
+      <tr>
+        <th>Name</th>
+        <th>H</th>
+        <th>Pb</th>
+        <th>EE</th>
+        <th>Fb</th>
+        <th>Cz</th>
+      </tr>
+      <tr *ngFor="let props of feedstocks">
+        <td>
+          <input
+            #nombre
+            type="text"
+            id="{{ props.Nombre }}"
+            (change)="onChangeName(nombre)"
+            [(ngModel)]="props.Nombre"
+          />
+        </td>
+        <td>
+          <input
+            #humedad
+            type="number"
+            (change)="onChangeProps(humedad)"
+            [(ngModel)]="props.Humedad"
+          />
+        </td>
+        <td>
+          <input
+            #proteina
+            type="number"
+            (change)="onChangeProps(proteina)"
+            [(ngModel)]="props.Proteina"
+          />
+        </td>
+        <td>
+          <input
+            #grasa
+            type="number"
+            (change)="onChangeProps(grasa)"
+            [(ngModel)]="props.Grasa"
+          />
+        </td>
+        <td>
+          <input
+            #fibra
+            type="number"
+            (change)="onChangeProps(fibra)"
+            [(ngModel)]="props.Fibra"
+          />
+        </td>
+        <td>
+          <input
+            #cenizas
+            type="number"
+            (change)="onChangeProps(cenizas)"
+            [(ngModel)]="props.Cenizas"
+          />
+        </td>
+      </tr>
+    </table>
+    <button class="plusBtn" (click)="createNewRow()">+</button>
+    <nav class="navigation">
+      <button type="button" routerLink="/" class="btnBack">Go Back</button>
+      <button type="submit" class="btnSave" (click)="onSaveStocks()">
+        Save Changes
+      </button>
+      <button type="button" class="btnRestore" (click)="onRestore()">
+        Restore Changes
+      </button>
+    </nav>
+    <p class="Notacion">
+      Notation:
+      <br />
+      H: % Moisture. <br />
+      Pb: % Crude protein. <br />
+      EE: % Ether extract (Crude fat). <br />
+      Fb: % Crude fiber. <br />
+      Cz: % Ash.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<section class="flexCol contenedor">
+  <div *ngIf="isLoading" class="loader">
+    <p>Loading... can take a few moments...</p>
+    <div class="spinerLoader"></div>
+  </div>
+<article *ngIf="!isLoading" class="contenedor-2">
+    <header class="titulo-1">
+      <h1>Formulate Ingredients</h1>
+    </header>
+    <!--Seleccion y cantidades de materias primas-->
+    <section class="flexCol">
+        <h2 class="titulo-2">Nutritional Composition of Feed</h2>
+      <div #notaError class="error_hidden"></div>
+      <aside class="flexCol">
+        <table id="tablaResultado">
+          <tr>
+            <th>Property</th>
+            <th>Expected value</th>
+            <th>Maximum allowed value</th>
+          </tr>
+          <tr>
+            <td>Mass (u)</td>
+            <td><input type="number" [(ngModel)]="perfilNutritivo.Masa"/></td>
+            <td><input type="number" [(ngModel)]="perfilNutritivoMaximo.Masa"/></td>
+          </tr>
+          <tr>
+            <td>Moisture (%)</td>
+            <td><input type="number" [(ngModel)]="perfilNutritivo.Humedad"/></td>
+            <td><input type="number" [(ngModel)]="perfilNutritivoMaximo.Humedad"/></td>
+          </tr>
+          <tr>
+            <td>Crude protein (%)</td>
+            <td><input type="number" [(ngModel)]="perfilNutritivo.Proteina"/></td>
+            <td><input type="number" [(ngModel)]="perfilNutritivoMaximo.Proteina"/></td>
+          </tr>
+          <tr>
+            <td>Ether extract (%)</td>
+            <td><input type="number" [(ngModel)]="perfilNutritivo.Grasa"/></td>
+            <td><input type="number" [(ngModel)]="perfilNutritivoMaximo.Grasa"/></td>
+          </tr>
+          <tr>
+            <td>Crude fiber (%)</td>
+            <td><input type="number" [(ngModel)]="perfilNutritivo.Fibra"/></td>
+            <td><input type="number" [(ngModel)]="perfilNutritivoMaximo.Fibra"/></td>
+          </tr>
+          <tr>
+            <td>Ash (%)</td>
+            <td><input type="number" [(ngModel)]="perfilNutritivo.Cenizas"/></td>
+            <td><input type="number" [(ngModel)]="perfilNutritivoMaximo.Cenizas"/></td>
+          </tr>
+        </table>  
+      </aside>  
+    </section>
+    <nav class="navegacion flexRow">
+        <button type="button" routerLink="/selection" class="btnBack">Go Back</button>
+        <div class="espaciador"></div>        
+        <button type="button" class="btnNext" (click)="onSiguiente()">Listo</button>        
+      </nav>  
+  </article>
+</section>

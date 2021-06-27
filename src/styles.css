@@ -4,13 +4,10 @@ html{
     padding: 0;
 }
 body{
-    background-image: url(/assets/FormABA.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
     margin:0;
     padding: 0;
+    background:linear-gradient(70deg,rgba(55, 92, 226, 0.8),rgba(45, 231, 154, 0.575), rgba(58, 233, 160, 0.575));
 }
 button{
     width: 100px;

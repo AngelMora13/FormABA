@@ -1,0 +1,16 @@
+<div class="guide">
+        <h1><a routerLink="/guide">Guide</a></h1>
+</div>
+<div #Container class="Container">
+        <div #ContainerBtn class="ContainerBtn">
+                <button [routerLink]="['selection']" class="btn">Formulate</button>
+                <button [routerLink]="['contact']" class="btn">Contact</button>
+                <button *ngIf="!isAuth" routerLink="user/login" class="btn">{{user}}</button>
+                <button *ngIf="isAuth" routerLink="user" class="btn">{{user}}</button>
+        </div>
+        <div *ngIf="isAuth" class="ContainerBtnAuth">
+                <button [routerLink]="['list']" class="btn">Add / Modify</button>
+                <button [routerLink]="['list/delete']" class="btn">Delete List</button>
+                <button (click)="doLogout()" class="btn">Logout</button>
+        </div>
+</div>

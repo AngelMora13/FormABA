@@ -1,0 +1,138 @@
+.flexCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+}
+.flexRow{
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-between;
+    margin: 10px;
+}
+.contenedor{
+    margin: 0;
+    padding:20px 0;
+    height: 100%;
+    min-height: 100vh;
+}
+.titulo-1,.titulo-2{
+    text-align: center;
+}
+.titulo-1{
+    font-size: 1.3rem;
+}
+.contenedor-2{
+    justify-content: space-between;
+    margin: 0 10px 30px 10px;
+    padding: 0 10px 30px 10px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 2px 2px 2px rgba(68,187,164, 0.9);
+    border-radius: 10px;
+}
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    
+}
+#tablaResultado tr th,#tablaResultado tr td{
+    padding: 10px;
+    text-align: center;
+
+}
+tr:nth-child(2n-1){
+    /*background: rgba(182, 180, 180, 0.9);*/
+    background: rgba(68,187,164, 0.8);
+    
+}
+th:first-child{
+    border-radius: 5px 0px 0 0;
+}
+th:last-child{
+    border-radius: 0 5px 0 0;
+}
+
+tr:nth-child(2n){
+    /*background: rgba(218, 215, 215, 0.8);*/
+    background: rgba(63, 93, 224, 0.5);
+    
+}
+th{
+    background: rgba(63, 65, 73, 0.925);
+    color:white;
+}
+input{
+    margin-top: 10px;
+    outline: none;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+}
+input:focus{
+    border: 2px solid orange;
+}
+.error_hidden{
+    visibility: hidden;
+}
+.error_detalle{
+    visibility: visible;
+    padding: 7px;
+    margin: 10px;
+    border-radius: 5px;
+    background: rgba(235, 79, 79, 0.9);
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+}
+.navegacion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.btnBack{
+    background:rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    color: black;
+}
+.btnBack:hover{
+    background:rgba(255, 255, 255, 0.8);
+}
+.btnNext{
+    color: white;
+    background: rgba(41, 131, 41, 0.8);
+}
+.btnNext:hover{
+    background: rgba(41, 131, 41, 1);
+}
+.loader{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.spinerLoader{
+    width: 55px;
+    height: 55px;
+    border:solid 8px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-left-color: white;
+    animation: spin 1.5s ease infinite;    
+
+}
+@keyframes spin{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+@media only screen and (max-width:480px){
+    table{
+        font-size: 0.8rem;
+    }
+    input{
+        width: 50px;
+    }
+}

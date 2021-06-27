@@ -1,0 +1,82 @@
+<section class="flexCol contenedor">
+    <h1 class="titulo-2">Select feedstocks</h1>
+    <nav class="flexRow filtro">
+      <p>Filter:</p>
+      <select #select (change)="onFiltro(select.value, inputText, inputNumber)">
+        <option value="1" selected>Name</option>
+        <option value="2">H</option>
+        <option value="3">PB</option>
+        <option value="4">EE</option>
+        <option value="5">FB</option>
+        <option value="6">Cz</option>
+      </select>
+      <input
+        type="text"
+        #inputText
+        class="filtro_nombre"
+        placeholder="Find by name..."
+        (keyup.Enter)="buscarFiltroNombre(inputText)"
+      />
+      <input
+        type="number"
+        hidden
+        #inputNumber
+        class="filtro_prop"
+        placeholder="Find all higher value..."
+        (keyup.Enter)="buscarFiltroPropiedad(select.value, inputNumber.value)"
+      />
+    </nav>
+    <article class="flexRow materiasPrimas">
+      <div class="mp">
+        <div *ngIf="!stopLoader" class="spinerLoader"></div>
+        <div *ngIf="stopLoader" class="mp_lista flexCol">
+          <a
+            *ngFor="let mp of materiasPrimas"
+            class="mp_boton"
+            (click)="onClick(mp)"
+            >{{ mp.Nombre }}</a
+          >
+        </div>
+      </div>
+      <div class="mp_seleccionada flexCol">
+        <div *ngFor="let mpSeleccion of seleccionMP" class="flexRow mp_s">
+          <label class="tooltip"
+            >{{ mpSeleccion.Nombre }}
+            <span class="tooltip_item">
+              H: {{ mpSeleccion.Humedad }}, PB: {{ mpSeleccion.Proteina }}, EE:
+              {{ mpSeleccion.Grasa }}, FB: {{ mpSeleccion.Fibra }}, Cz:
+              {{ mpSeleccion.Cenizas }}
+            </span></label
+          >
+          <button class="mp_eliminar" (click)="deleteSeleccion(mpSeleccion)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </article>
+    <div class="radioSelections">
+
+      <label for="radio1" class="labelSelect">Formulate feed</label>
+      <input id="radio1" type="radio" name="formulate" [value]="true" [(ngModel)]="radio"/>
+
+      <label for="radio2" class="labelSelect">Formulate ingredients</label>
+      <input id="radio2" type="radio" name="formulate" [value]="false" [(ngModel)]="radio"/>
+      
+    </div>
+    <nav class="navegacion flexRow">
+        <button class="btnBack" [routerLink]="['/']">Go Back</button>
+      <div class="espaciador"></div>
+      <button class="btnRestore" (click)="onReset()">Restore</button>
+      <div class="espaciador"></div>
+      <button class="btnNext" (click)="onSiguiente()">Next</button>
+    </nav>
+    <p class="Notacion">
+      Notation:
+      <br/> H: % Moisture.
+      <br/> Pb: % Crude protein. 
+      <br/> EE: % Ether extract (Crude fat). 
+      <br/> Fb: % Crude fiber. 
+      <br/> Cz: % Ash.
+  </p>
+  </section>
+  

@@ -1,0 +1,87 @@
+<article class="primerContenedor">
+    <header class="titulo titulo_1">
+      <h1>Formulate Ingredients</h1>
+    </header>
+    <!--Seleccion y cantidades de materias primas-->
+    <div class="segundoContenedor">
+      <aside class="materiasPrimas">
+        <header class="titulo"><h2>Ingredients</h2></header>
+        <div class="mp__contenedor">
+          <aside class="tableContainer">
+            <table class="tablaResultado">
+              <tr>
+                <th>Ingredients</th>
+                <th>Value</th>
+              </tr>
+              <tr *ngFor="let mpSeleccion of seleccionMP">
+                <td>
+                  <label class="tooltip"
+                    >{{ mpSeleccion.Nombre }}
+                    <span class="tooltip_item">
+                      H: {{ mpSeleccion.Humedad }}, PB:
+                      {{ mpSeleccion.Proteina }}, EE: {{ mpSeleccion.Grasa }}, FB:
+                      {{ mpSeleccion.Fibra }}, Cz:
+                      {{ mpSeleccion.Cenizas }}
+                    </span></label
+                  >
+                </td>
+                <td>{{ mpSeleccion.Masa.toFixed(4) }}</td>
+              </tr>
+            </table>
+          </aside>
+        </div>
+      </aside>
+      <div class="espaciador"></div>
+      <!--perfil nutritivo-->
+      <article class="resultados">
+        <header class="titulo">
+          <h2>Results of Nutritional Composition</h2>
+        </header>
+        <aside class="tableContainer">
+          <table class="tablaResultado">
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+              <th>Expected value</th>
+            </tr>
+            <tr>
+              <td>Mass (u)</td>
+              <td>{{ perfilNutritivo.Masa.toFixed(4) }}</td>
+              <td>{{ perfilNutritivoEsperado.Masa.toFixed(4) }}</td>
+            </tr>
+            <tr>
+              <td>Moisture (%)</td>
+              <td>{{ perfilNutritivo.Humedad.toFixed(4) }}</td>
+              <td>{{ perfilNutritivoEsperado.Humedad.toFixed(4) }}</td>
+            </tr>
+            <tr>
+              <td>Crude protein (%)</td>
+              <td>{{ perfilNutritivo.Proteina.toFixed(4) }}</td>
+              <td>{{ perfilNutritivoEsperado.Proteina.toFixed(4) }}</td>
+            </tr>
+            <tr>
+              <td>Ether extract (%)</td>
+              <td>{{ perfilNutritivo.Grasa.toFixed(4) }}</td>
+              <td>{{ perfilNutritivoEsperado.Grasa.toFixed(4) }}</td>
+            </tr>
+            <tr>
+              <td>Crude fiber (%)</td>
+              <td>{{ perfilNutritivo.Fibra.toFixed(4) }}</td>
+              <td>{{ perfilNutritivoEsperado.Fibra.toFixed(4) }}</td>
+            </tr>
+            <tr>
+              <td>Ash (%)</td>
+              <td>{{ perfilNutritivo.Cenizas.toFixed(4) }}</td>
+              <td>{{ perfilNutritivoEsperado.Cenizas.toFixed(4) }}</td>
+            </tr>
+          </table>
+        </aside>
+        <nav class="navegacion">
+          <button class="btnBack" routerLink="/selection">Go Back</button>
+          <button class="btnNext" routerLink="/selection/formulate">
+            Formulate feed
+          </button>
+        </nav>
+      </article>
+    </div>
+  </article>

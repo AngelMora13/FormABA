@@ -1,0 +1,89 @@
+.Container{
+    display: grid;
+    place-items: center;
+    height: 100%;
+    min-height: 100vh;
+}
+.guide{
+    position: absolute;
+    top:10px;
+    right:5%;
+    font-size: 0.6rem;
+    opacity: 0.5;
+    transition: all 0.5s ease-in;
+}
+.guide a{
+    text-decoration: none;
+    color:black;
+}
+.guide:hover{
+    opacity: 0.9;
+}
+.ContainerBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 10vw;
+}
+.ContainerAuth{
+    height: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20vh 0px;
+}
+.ContainerBtnAuth{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0px 10vw;
+}
+.ContainerBtnAuth:nth-of-type(1){
+    align-self: flex-end;
+}
+.ContainerBtnAuth:nth-of-type(2){
+    align-self: flex-start;
+}
+.btn{
+    --size:150px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border-bottom: 8px solid rgba( 255, 255, 255, 0.2 );
+    width: var(--size);
+    height:var(--size);
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 4px 4px 8px rgba(58, 233, 160, 0.575);
+    transition: all 0.1s ease;
+}
+.btn:active{
+    background: rgba( 255, 255, 255, 0.8 );
+    box-shadow: 2px 2px 2px rgba(58, 233, 160, 0.575);
+    border-bottom: 4px solid white;
+}
+@media only screen and (max-width:600px){
+    .ContainerBtn{
+        flex-direction: column;
+        gap: 20px 0px;
+    }
+    .ContainerAuth{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+    }
+    .ContainerBtnAuth{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px 0;
+    }
+    .ContainerBtnAuth:nth-of-type(1){
+        align-self: center;
+    }
+    .ContainerBtnAuth:nth-of-type(2){
+        align-self: center;
+    }
+}
+    @media only screen and (max-height:400px){
+        .btn{
+            --size:120px;
+        }
+    }

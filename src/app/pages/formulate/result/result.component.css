@@ -1,0 +1,158 @@
+.titulo{
+    justify-self: center;
+    text-align: center;
+}
+.titulo_1{
+    margin: 0 10px 0px 10px;
+    padding: 0 10px 0px 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px 10px 0 0;
+}
+.primerContenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding:20px 0;
+    height: 100%;
+    min-height: 100vh;
+}
+.segundoContenedor{
+    margin: 0 10px 30px 10px;
+    padding: 0 10px 30px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 10px 10px;
+}
+.materiasPrimas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+.mp__contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.tableContainer{
+    width: 100%;
+}
+.tooltip{
+    text-align: center;
+    position: relative;
+    flex-grow: 1;
+    cursor: help;
+}
+.tooltip_item{
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 200px;
+    margin-left: -80px;
+    text-align: center;
+    background: rgba(68,187,164, 0.9);
+    color: white;
+    border-radius: 5px;
+    padding: 8px 4px;
+    font-size: 0.9rem;
+}
+.tooltip:hover .tooltip_item{
+    visibility: visible;
+}
+.tooltip_item::after{
+    content: "";
+    position: absolute;
+    top:100%;
+    left: 30%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(68,187,164, 0.9) transparent transparent transparent;
+}
+
+.espaciador{
+    border: 10px solid rgba(49, 65, 138, 0.5);
+    visibility: hidden;
+}
+
+.resultados{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+.resultados aside{
+    align-self: center;
+}
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+.tablaResultado tr th, .tablaResultado tr td{
+    padding: 10px;
+    text-align: center;
+}
+td~td{
+    color:white;
+}
+tr:nth-child(2n-1){
+    /*background: rgba(182, 180, 180, 0.9);*/
+    background: rgba(68,187,164, 0.8);
+    
+}
+th:first-child{
+    border-radius: 5px 0px 0 0;
+}
+th:last-child{
+    border-radius: 0 5px 0 0;
+}
+
+tr:nth-child(2n){
+    /*background: rgba(218, 215, 215, 0.8);*/
+    background: rgba(63, 93, 224, 0.5);
+    
+}
+th{
+    color:white;
+    background: rgba(63, 65, 73, 0.925);
+}
+.navegacion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin:10px 0 10px 0;
+}
+.btnNext{
+    color: white;
+    background: rgba(41, 131, 41, 0.8);
+    width: 130px;
+}
+.btnNext:hover{
+    background: rgba(41, 131, 41, 1);
+}
+.btnBack{
+    background:rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    color: black;
+}
+.btnBack:hover{
+    background:rgba(255, 255, 255, 0.8);
+}
+@media only screen and (max-width:1024px){ 
+    .mp__contenedor{
+        justify-content: center;
+    }
+}
+@media only screen and (max-width:480px) and (min-width:320px){
+    .materiasPrimas{
+        margin:0;
+    }
+}

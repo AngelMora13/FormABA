@@ -1,23 +1,46 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule,PreloadingStrategy, PreloadAllModules } from '@angular/router';
-import { InicioComponent } from './shared/inicio/inicio.component';
+import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
-  { path: 'inicio',component:InicioComponent },
-  { path: 'alimento', loadChildren: () => import('./aplicaciones/alimento/alimento.module').then(m => m.AlimentoModule) },
-  { path: 'ingredientes', loadChildren: () => import('./aplicaciones/ingredientes/ingredientes.module').then(m => m.IngredientesModule) },
-  { path: 'desarrollo', loadChildren: () => import('./componentes/desarrollo/desarrollo.module').then(m => m.DesarrolloModule) },
-  { path: 'tutoriales/formularalimento', loadChildren: () => import('./componentes/tutoriales/formular-alimento/formular-alimento.module').then(m => m.FormularAlimentoModule) },
-  { path: 'tutoriales/formularingredientes', loadChildren: () => import('./componentes/tutoriales/formular-ingredientes/formular-ingredientes.module').then(m => m.FormularIngredientesModule) },
-  { path: 'registro', loadChildren: () => import('./usuarios/registro/registro.module').then(m => m.RegistroModule) },
-  { path: 'login', loadChildren: () => import('./usuarios/login/login.module').then(m => m.LoginModule) },
-  { path: 'info/contacto', loadChildren: () => import('./componentes/contacto/contacto.module').then(m => m.ContactoModule) },
-  { path: '**', redirectTo:"inicio"}];
+  {
+    path:"",
+    component:MainComponent
+  },
+  {
+    path:"selection",
+    loadChildren: ()=> import("./pages/formulate/formulate.module").then( m => m.FormulateModule)
+  },
+  {
+    path:"contact",
+    loadChildren: ()=> import("./pages/contact/contact.module").then( m => m.ContactModule)
+  },
+  {
+    path:"guide",
+    loadChildren: ()=> import("./pages/guide/guide.module").then( m=> m.GuideModule)
+  },
+  {
+    path:"user",
+    loadChildren: ()=> import("./pages/user/user.module").then( m => m.UserModule)
+  },
+  {
+    path:"list",
+    canLoad:[AuthGuard],
+    loadChildren: ()=> import("./pages/list-feed/list-feed.module").then( m=> m.ListFeedModule)
+  },
+  {
+    path:"**",
+    redirectTo:""
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{
-    preloadingStrategy:PreloadAllModules,useHash:true
-  })],
+  imports: [
+    RouterModule.forRoot( routes,{
+      useHash:true
+    } )
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

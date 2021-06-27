@@ -1,0 +1,157 @@
+.primerContenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0 10px;
+}
+.overlay{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+h1{
+    color: white;
+}
+header{
+    align-self: center;
+}
+.seleccionUsuario{
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+    
+}
+.seleccionado{
+    background: none;
+    
+}
+.usuarioTitulo{
+    background: rgba(49, 65, 138, 0.9);
+}
+.flexGrow{
+    flex-grow: 1;
+    background: rgba(49, 65, 138, 0.9);
+    box-shadow: 0px 5px 5px black;
+    cursor: pointer;
+    border-radius: 0 10px 0 0;
+}
+.tipoUsuario{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+}
+.registro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(49, 65, 138, 0.5);
+    box-shadow: 2px 2px 32px rgba(68,187,164, 0.8);
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+.registro__usuario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 3vh;
+    position: relative;
+}
+label, .formInput{
+    padding: 5px;
+}
+label{
+    color:white;
+}
+.formInput{
+    border-radius: 50px;
+    outline: none;
+    border: 2px solid white;
+    text-align: center;
+}
+.formInput:focus{
+    box-shadow: 0px 0px 5px 3px rgba(255, 166, 0, 0.7), 0px 0px 5px 3px rgba(255, 166, 0, 0.7);
+}
+.isInvalid{
+    width: 100%;
+    text-align: center;
+    background: rgba(236, 82, 82, 0.7);  
+    color: white;
+    padding: 5px 0;
+}
+.submitRegistro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin:5px 0px;
+    padding: 0 8px 0 0;
+}
+.submitBtn{
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+}
+.submitBtn{
+    background: rgba(68,187,164, 1);
+    color:white;
+    flex-grow: 1;
+    margin: 0 10px;
+    transition: all ease-out 0.35s;
+}
+.submitBtn:hover{
+    background: rgba(49, 190, 49, 0.8);
+    transition: all ease-in 0.15s;
+}
+.btnBack{
+    background:rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    color: black;
+    border-radius: 20px;
+    margin: 0 10px;
+}
+.btnBack:hover{
+    transition: ease-in all 0.15s;
+    background: rgba(255, 255, 255, 0.8);
+}
+.spinerLoader{
+    background: none;
+    width: 70px;
+    height: 70px;
+    border:solid 10px rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border-left-color: rgba(68,187,164, 1);
+    animation: spin 1.5s ease infinite; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+@keyframes spin{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+@media only screen and (max-width:480px){
+    .registro__usuario{        
+        align-items: center;
+    }
+    .submitBtn,.resetBtn{
+        font-size: 1rem;
+    }
+}

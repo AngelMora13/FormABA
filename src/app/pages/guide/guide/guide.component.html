@@ -1,0 +1,159 @@
+<div class="Container">
+    <header class="title"><h1>FormABA</h1></header>
+    <nav class="navbar">
+        <header><h3>Content</h3></header>
+        <ul>
+            <li><a (click)="scrollIntoView(FormABA)">What is this?</a></li>
+            <li><a (click)="scrollIntoView(formulate)">Formulate</a></li>
+            <ul>
+                <li><a (click)="scrollIntoView(FF)">Formulate Feed</a></li>
+                <li><a (click)="scrollIntoView(FI)">Formulate Ingredients</a></li>
+            </ul>
+            <li><a (click)="scrollIntoView(login)">Login / Register</a></li>
+            <li><a (click)="scrollIntoView(user)">User</a></li>
+            <li><a (click)="scrollIntoView(add)">Add / Modify</a></li>
+            <li><a (click)="scrollIntoView(delete)">Delete</a></li>
+        </ul>
+    </nav>
+    <section class="articles">
+        <article>
+            <header #FormABA><h2>What is this?</h2></header>
+            <p>
+                Web application, designed to an easy evaluation of feed´s quality features,
+                before its elaboration. Until now, quality features are: moisture percent, 
+                Crude protein percent, Crude fat percent like Ether extract, crude fiber percent
+                and ash percent.
+            </p>
+        </article>
+
+        <article>
+            <header #formulate><h2>Formulate</h2></header>
+            <p>
+                Can be <a href="#FF">Formulate Feed (F.F.)</a> or <a href="#FI">Formulate Ingredients (F.I.)</a>.
+            </p>
+            <p>
+                If you arent login, the list of feedstocks are a local feedstocks which was taken from 
+                <a href="http://www.fundacionfedna.org/" target="_blank">
+                    Fundaci&oacute;n Española para el Desarrollo de la Nutrici&oacute;n
+                    Animal, FEDNA.
+                </a>
+            </p>
+            <p>
+                Note: all feedstocks are not taken.
+            </p>
+            <p>
+                if you are logged in, local list of feedstocks are not display instead you can add, modify and
+                delete you own feedstocks.
+            </p>
+            <p>
+                When you formulate, you need select at least one feedstock to F.F. and two for F.I. 
+                and select the method suitable.
+            </p>
+            <p>
+                You can see more features of feedstocks doing click on it name.
+                
+            </p>
+        </article>
+
+        <article>
+            <header #FF><h2>Formulate Feed</h2></header>
+            <p>
+                Predict the nutritional profile of feed through selection some feedstocks and 
+                it amount of mass at mix.
+            </p>
+            <p>
+                On screen you will see the feedstock selected and a box where you can put it 
+                amount of mass.
+            </p>
+            <p>
+                To predict, click on Predict button.
+            </p>
+        </article>
+
+        <article>
+            <header #FI><h2>Formulate Ingredients</h2></header>
+            <p>
+                Predicts the mass amount of every feedstock through the nutritional profile of mix.
+            </p>
+            <p>
+                After selecting feedstocks, you will see a table where you put the nutritional profile 
+                expected and the maximum allowed.
+            </p>
+            <p>
+                Rules:
+            </p>
+            <ul>
+                <li>Every nutritional feature expected cannot be zero (0) or negative</li>
+                <li>Every nutritional feature expected cannot be higer than the maximum allowed</li>
+                <li>You need at least two feedstocks to formulate ingredients</li>
+            </ul>
+            <p>Considerations: Feedstocks selected and nutritional profile can will not match with a result 
+                due to nature of feedstocks, example:
+            </p>
+            <p>
+                Soy has about 45% of crude protein and it is higher tha other feedstocks you selected, then you 
+                need 55% of crude protein as nutritional feature expected. This make impossible reach an optimum result 
+                because the max value is 45%.
+            </p>
+            <p>
+                Recommendations when there is not result:
+            </p>
+            <ul>
+                <li>Increase the maximum value allowed.</li>
+                <li>Reduce the expected value.</li>
+                <li>Select other feedstocks.</li>
+            </ul>
+            <p>
+                After having a result, you will see the amount of mass of feedstocks, the calculate value and the expected value.
+            </p>
+            <p>For any drawbacks, plase contact.</p>
+        </article>
+
+        <article>
+            <header #login><h2>Login / Register</h2></header>
+            <p>
+                To do login just click on login button and enter credentials.
+            </p>
+            <p>
+                to Register, click on register in login page and fill the form.
+            </p>
+            <p>
+                After login, you will se the user button, add / modify button and delete button.
+            </p>
+            <p>
+                When you are logged in, you cannot access to local feedstocks, just can access 
+                to you own database.
+            </p>
+        </article>
+
+        <article>
+            <header #user><h2>User</h2></header>
+            <p>
+                This page show the data form when you register the account and the amount of 
+                feedstocks you have.
+            </p>
+        </article>
+
+        <article>
+            <header #add><h2>Add / Modify</h2></header>
+            <p>
+                You can add and modify you own feedstocks.
+            </p>
+            <p>
+                Rules:
+            </p>
+            <ul>
+                <li>The name cannot be repeated or empty</li>
+                <li>The features cannot be negatives</li>
+            </ul>
+        </article>
+
+        <article>
+            <header #delete><h2>Delete</h2></header>
+            <p>
+                You can delete you own feedstocks.
+            </p>
+        </article>
+    </section>
+    <button class="btnBack" routerLink="/">Go Back</button>
+</div>
